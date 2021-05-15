@@ -8,4 +8,4 @@ WideResNets tackle these problems.
  -  Original repo: https://github.com/szagoruyko/wide-residual-networks
 
 ## Model Architecture
-![WRN-16-2 Architecture](models/WRN-16-2.png?raw=true "WRN-16-2 Architecture")
+![WRN Architecture](models/WideResNet_keras.png?raw=true "WideResNet Architecture")
