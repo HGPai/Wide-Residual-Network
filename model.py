@@ -14,7 +14,8 @@ class WideResNet:
     self.input_filter = input_filter
     self.output_filter = output_filter
     self.stride = stride
-  
+ 
+### decorator to create the Residual block
   def __call__(self, input_val):
 
     strides_params = [self.stride, (1,1)]
@@ -48,6 +49,7 @@ class WideResNet:
 
     return layers.Add()([conv_out, shortcut])
 
+### creating each layer
   def layer(stride, input_filter, output_filter):
     def func(logit):
        logit = WideResNet(input_filter, output_filter, stride)(logit)
@@ -55,6 +57,7 @@ class WideResNet:
        return block_out
     return func
 
+### function to create the model
 def create_model(channel_dim=2, k=2):
   input_vals = keras.Input(shape=(32, 32, 3))
   conv1_out = layers.Conv2D(16, (3, 3), padding='same')(input_vals)
